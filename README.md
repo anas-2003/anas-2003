@@ -79,12 +79,12 @@
 
     <!-- Waving Header -->
     <div class="text-center mb-8">
-      <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00ffe0,100:ff00ff&height=250&section=header&text=Anas%20Erami%20🚀&fontSize=50&animation=fadeIn&fontColor=ffffff" alt="Header" class="w-full rounded-xl header-image-glow">
+      <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00ffe0,100:ff00ff&height=250§ion=header&text=Anas%20Erami%20🚀&fontSize=50&animation=fadeIn&fontColor=ffffff" alt="Header" class="w-full rounded-xl header-image-glow">
     </div>
 
     <!-- Typing Text -->
     <div class="text-center mb-8">
-      <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=4000&pause=1000&color=00FFE0&center=true&vCenter=true&width=600&lines=Hi+I’m+Anas+Erami.;Creative+Software+Developer.;Coding+is+my+art.;Let’s+build+something+amazing!" alt="Typing Animation" class="w-full max-w-xl mx-auto">
+      <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=4000&pause=1000&color=00FFE0¢er=true&vCenter=true&width=600&lines=Hi+I'm+Anas+Erami.;Creative+Software+Developer;Coding+is+my+art.;Let's+build+something+amazing!" alt="Typing Animation" class="w-full max-w-xl mx-auto">
     </div>
 
     <hr class="border-t-2 border-purple-500 my-8">
@@ -112,7 +112,7 @@
     <h2 class="text-3xl font-bold mb-6 text-center neon-text">📊 GitHub Stats</h2>
     <div class="flex flex-col items-center space-y-6 mb-8">
       <img src="https://github-readme-stats.vercel.app/api?username=anas-2003&show_icons=true&theme=radical&hide_border=true&count_private=true" alt="GitHub Stats" class="w-full max-w-md rounded-lg header-image-glow">
-      <img src="https://github-readme-streak-stats.herokuapp.com/?user=anas-2003&theme=radical&hide_border=true" alt="GitHub Streak" class="w-full max-w-md rounded-lg header-image-glow">
+      <img src="https://streak-stats.demolab.com/?user=anas-2003&theme=radical&hide_border=true" alt="GitHub Streak" class="w-full max-w-md rounded-lg header-image-glow">
     </div>
 
     <hr class="border-t-2 border-red-500 my-8">
