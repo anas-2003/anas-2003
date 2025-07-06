@@ -42,8 +42,9 @@
     .content-container {
       position: relative;
       z-index: 1;
-      background-color: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(4px);
+      /* --- FIX 1: Increased contrast and blur for better visibility --- */
+      background-color: rgba(10, 20, 30, 0.75); /* Was almost pure black */
+      backdrop-filter: blur(8px); /* Was 4px */
       border-radius: 1.5rem;
       border: 2px solid rgba(0, 255, 224, 0.4);
       box-shadow: 0 0 30px rgba(0, 255, 224, 0.4),
@@ -145,15 +146,24 @@
   <script>
     const canvas = document.getElementById('matrixCanvas');
     const ctx = canvas.getContext('2d');
-    let W = window.innerWidth;
-    let H = window.innerHeight;
-    canvas.width = W;
-    canvas.height = H;
 
-    const matrix = "日ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘｱﾎﾃﾏｹﾒｴ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    // --- FIX 2: Encapsulated setup logic into a function for reuse ---
+    let W, H, columns, drops;
     const fontSize = 16;
-    const columns = Math.floor(W / fontSize);
-    const drops = Array(columns).fill(1);
+    const matrix = "日ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘｱﾎﾃﾏｹﾒｴ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    // Function to set up or reset the canvas and columns
+    function setup() {
+      W = window.innerWidth;
+      H = window.innerHeight;
+      canvas.width = W;
+      canvas.height = H;
+      columns = Math.floor(W / fontSize);
+      drops = [];
+      for(let i = 0; i < columns; i++) {
+        drops[i] = 1;
+      }
+    }
 
     function draw() {
       ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
@@ -161,18 +171,24 @@
       ctx.fillStyle = "#00ffe0";
       ctx.font = `${fontSize}px monospace`;
 
-      drops.forEach((y, i) => {
+      for(let i = 0; i < drops.length; i++) {
         const text = matrix[Math.floor(Math.random() * matrix.length)];
-        ctx.fillText(text, i * fontSize, y * fontSize);
-        drops[i] = y * fontSize > H && Math.random() > 0.975 ? 0 : y + 1;
-      });
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        if(drops[i] * fontSize > H && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
     }
 
+    // Initial setup
+    setup();
+    
+    // Start the animation
     setInterval(draw, 33);
-    window.addEventListener('resize', () => {
-      W = canvas.width = window.innerWidth;
-      H = canvas.height = window.innerHeight;
-    });
+
+    // Reset canvas on window resize
+    window.addEventListener('resize', setup);
   </script>
 </body>
 </html>
